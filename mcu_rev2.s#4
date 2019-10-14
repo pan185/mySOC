@@ -11268,8 +11268,8 @@ Source: &lt;a href="http://uk.rs-online.com/web/p/products/7235373P"&gt; Datashe
 <part name="S1" library="push_button" deviceset="DTSM-63N-V-B" device=""/>
 <part name="SUPPLY5" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="J3" library="90131-0937" deviceset="90131-0937" device=""/>
-<part name="LED3" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="SML0805" package3d_urn="urn:adsk.eagle:package:15830/1"/>
-<part name="LED4" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="SML0805" package3d_urn="urn:adsk.eagle:package:15830/1"/>
+<part name="LED3" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="SML0805" package3d_urn="urn:adsk.eagle:package:15830/1" value="0"/>
+<part name="LED4" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="SML0805" package3d_urn="urn:adsk.eagle:package:15830/1" value="0"/>
 <part name="SUPPLY14" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="R10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1.5k"/>
 <part name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1.5k"/>
@@ -11316,9 +11316,10 @@ Source: &lt;a href="http://uk.rs-online.com/web/p/products/7235373P"&gt; Datashe
 <part name="SUPPLY9" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="C23" library="GRM1555C1H360JA01D" deviceset="GRM1555C1H360JA01D" device="" value="36p"/>
 <part name="C24" library="GRM1555C1H180FA01D" deviceset="GRM1555C1H180FA01D" device="" value="18p"/>
-<part name="LED5" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="CHIP-LED0805" package3d_urn="urn:adsk.eagle:package:15818/2"/>
+<part name="LED5" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="CHIP-LED0805" package3d_urn="urn:adsk.eagle:package:15818/2" value="0"/>
 <part name="SUPPLY2" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="FRAME3" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="DINA5_L" device=""/>
+<part name="FRAME3" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="DINA5_L" device="" value="0"/>
+<part name="SUPPLY22" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12727,6 +12728,8 @@ Source: &lt;a href="http://uk.rs-online.com/web/p/products/7235373P"&gt; Datashe
 <text x="167.64" y="15.24" size="2.1844" layer="94">02</text>
 <text x="101.6" y="17.78" size="2.1844" layer="94">ROBOTA1</text>
 <text x="99.06" y="12.7" size="2.1844" layer="94">ZHEWEN PAN</text>
+<text x="121.92" y="104.14" size="1.778" layer="94">Decoupling Capacitors</text>
+<text x="48.26" y="99.06" size="1.778" layer="94">Pull-up Resistors</text>
 </plain>
 <instances>
 <instance part="BT_SLAVE" gate="G$1" x="93.98" y="66.04" smashed="yes">
@@ -12775,6 +12778,9 @@ Source: &lt;a href="http://uk.rs-online.com/web/p/products/7235373P"&gt; Datashe
 <attribute name="DRAWING_NAME" x="140.97" y="15.24" size="2.54" layer="94"/>
 <attribute name="LAST_DATE_TIME" x="140.97" y="10.16" size="2.286" layer="94"/>
 <attribute name="SHEET" x="154.305" y="5.08" size="2.54" layer="94"/>
+</instance>
+<instance part="SUPPLY22" gate="GND" x="119.38" y="35.56" smashed="yes">
+<attribute name="VALUE" x="117.475" y="32.385" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -12848,6 +12854,12 @@ Source: &lt;a href="http://uk.rs-online.com/web/p/products/7235373P"&gt; Datashe
 <wire x1="154.94" y1="76.2" x2="154.94" y2="66.04" width="0.1524" layer="91"/>
 <junction x="154.94" y="66.04"/>
 </segment>
+<segment>
+<pinref part="BT_SLAVE" gate="G$1" pin="GND"/>
+<pinref part="SUPPLY22" gate="GND" pin="GND"/>
+<wire x1="114.3" y1="40.64" x2="119.38" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="40.64" x2="119.38" y2="38.1" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="MID1" class="0">
 <segment>
@@ -12893,6 +12905,15 @@ Source: &lt;a href="http://uk.rs-online.com/web/p/products/7235373P"&gt; Datashe
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="202,2,73.66,81.28,BT_SLAVE,!UART-CTS,,,,"/>
+<approved hash="202,2,73.66,71.12,BT_SLAVE,PCM-IN,,,,"/>
+<approved hash="202,2,73.66,88.9,BT_SLAVE,!RESETB,,,,"/>
+<approved hash="104,2,114.3,93.98,BT_SLAVE,3.3_VCC,VDDD,,,"/>
+<approved hash="202,2,73.66,60.96,BT_SLAVE,!SPI_CSB,,,,"/>
+<approved hash="202,2,73.66,63.5,BT_SLAVE,SPI_MOSI,,,,"/>
+<approved hash="202,2,73.66,58.42,BT_SLAVE,SPI_CLK,,,,"/>
+</errors>
 </schematic>
 </drawing>
 <compatibility>
